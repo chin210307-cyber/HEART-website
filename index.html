@@ -23,7 +23,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -34,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* ─── NOISE OVERLAY ─── */
   body::before {
     content: '';
     position: fixed;
@@ -45,7 +43,7 @@
     z-index: 9999;
   }
 
-  /* ─── NAV ─── */
+  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -57,32 +55,14 @@
     background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
     backdrop-filter: blur(2px);
   }
-
   .nav-logo {
     font-family: var(--font-display);
     font-size: 1.6rem;
     letter-spacing: 0.35em;
     color: var(--gold);
     text-decoration: none;
-    position: relative;
   }
-
-  .nav-logo span {
-    display: inline-block;
-    width: 1px;
-    height: 1em;
-    background: var(--gold);
-    opacity: 0.4;
-    vertical-align: middle;
-    margin: 0 0.15em;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
@@ -91,9 +71,7 @@
     text-transform: uppercase;
     transition: color 0.3s;
   }
-
   .nav-links a:hover { color: var(--gold); }
-
   .nav-cta {
     background: transparent;
     border: 1px solid var(--gold);
@@ -103,13 +81,9 @@
     letter-spacing: 0.2em;
     transition: all 0.3s !important;
   }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
 
-  .nav-cta:hover {
-    background: var(--gold) !important;
-    color: var(--black) !important;
-  }
-
-  /* ─── HERO ─── */
+  /* ── HERO ── */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -119,7 +93,6 @@
     justify-content: center;
     overflow: hidden;
   }
-
   .hero-bg {
     position: absolute;
     inset: 0;
@@ -128,35 +101,17 @@
       radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
       var(--black);
   }
-
-  .hero-lines {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-  }
-
-  .hero-lines::before,
-  .hero-lines::after {
+  .hero-lines { position: absolute; inset: 0; overflow: hidden; }
+  .hero-lines::before, .hero-lines::after {
     content: '';
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
     border-radius: 50%;
     border: 1px solid rgba(201,168,76,0.06);
   }
+  .hero-lines::before { width: 80vw; height: 80vw; top: 50%; transform: translate(-50%, -50%); }
+  .hero-lines::after  { width: 55vw; height: 55vw; top: 50%; transform: translate(-50%, -50%); border-color: rgba(201,168,76,0.04); }
 
-  .hero-lines::before {
-    width: 80vw; height: 80vw;
-    top: 50%; transform: translate(-50%, -50%);
-  }
-
-  .hero-lines::after {
-    width: 55vw; height: 55vw;
-    top: 50%; transform: translate(-50%, -50%);
-    border-color: rgba(201,168,76,0.04);
-  }
-
-  /* ─── LOGO MARK ─── */
   .logo-mark {
     position: relative;
     z-index: 2;
@@ -164,16 +119,11 @@
     animation: fadeUp 1.2s ease forwards;
     opacity: 0;
   }
-
-  .logo-svg-wrapper {
-    width: 160px;
-    height: 160px;
-    position: relative;
-  }
+  .logo-svg-wrapper { width: 160px; height: 160px; position: relative; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .hero-content {
@@ -183,17 +133,6 @@
     animation: fadeUp 1.4s ease 0.2s forwards;
     opacity: 0;
   }
-
-  .hero-eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
-  }
-
   .hero-title {
     font-family: var(--font-display);
     font-size: clamp(5rem, 15vw, 12rem);
@@ -205,7 +144,6 @@
     background-clip: text;
     margin-bottom: 0.5rem;
   }
-
   .hero-subtitle {
     font-family: var(--font-serif);
     font-size: clamp(0.9rem, 2vw, 1.2rem);
@@ -214,30 +152,11 @@
     color: var(--muted);
     margin-bottom: 3rem;
   }
-
-  .hero-dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .hero-dots span {
-    display: block;
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
-    opacity: 0.5;
-  }
-
+  .hero-dots { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 3rem; }
+  .hero-dots span { display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.5; }
   .hero-dots span:nth-child(2) { opacity: 1; width: 6px; height: 6px; }
 
-  .hero-actions {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-  }
+  .hero-actions { display: flex; gap: 1.5rem; justify-content: center; }
 
   .btn-primary {
     background: var(--gold);
@@ -252,12 +171,7 @@
     transition: all 0.3s;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
-  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
 
   .btn-ghost {
     background: transparent;
@@ -272,16 +186,11 @@
     transition: all 0.3s;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-
-  .btn-ghost:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
   .hero-scroll {
     position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
+    bottom: 2.5rem; left: 50%;
     transform: translateX(-50%);
     z-index: 2;
     display: flex;
@@ -291,69 +200,17 @@
     animation: fadeUp 1.6s ease 0.6s forwards;
     opacity: 0;
   }
+  .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-  .hero-scroll span {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
+  /* ── DIVIDER ── */
+  .divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.15; }
 
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
+  /* ── SECTIONS ── */
+  section { padding: 8rem 4rem; }
 
-  @keyframes scrollPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  /* ─── STAT BAR ─── */
-  .stat-bar {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 4rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .stat-item {
-    text-align: center;
-    padding: 1rem;
-    border-right: 1px solid var(--border);
-  }
-
-  .stat-item:last-child { border-right: none; }
-
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ─── SECTIONS ─── */
-  section {
-    padding: 8rem 4rem;
-  }
-
-  .section-header {
-    margin-bottom: 5rem;
-  }
-
+  .section-header { margin-bottom: 5rem; }
   .section-tag {
     font-size: 0.65rem;
     letter-spacing: 0.5em;
@@ -364,41 +221,20 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
   }
+  .section-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .section-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; color: var(--white); max-width: 600px; }
+  .section-title em { font-style: italic; color: var(--gold); }
 
-  .section-tag::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    max-width: 600px;
-  }
-
-  .section-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  /* ─── ABOUT ─── */
+  /* ── ABOUT ── */
   #about {
     background: var(--deep);
     position: relative;
     overflow: hidden;
   }
-
   #about::before {
     content: 'HEART';
     position: absolute;
-    right: -2rem;
-    top: 50%;
+    right: -2rem; top: 50%;
     transform: translateY(-50%);
     font-family: var(--font-display);
     font-size: 20vw;
@@ -407,17 +243,7 @@
     letter-spacing: 0.2em;
     white-space: nowrap;
   }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-
-  .about-visual {
-    position: relative;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
 
   .about-card {
     background: var(--surface);
@@ -426,7 +252,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .about-card::before {
     content: '';
     position: absolute;
@@ -434,203 +259,103 @@
     width: 100%; height: 3px;
     background: linear-gradient(to right, var(--red), var(--gold));
   }
-
   .about-card-accent {
     position: absolute;
-    bottom: -2rem;
-    right: -2rem;
-    width: 120px;
-    height: 120px;
+    bottom: -2rem; right: -2rem;
+    width: 120px; height: 120px;
     border: 1px solid var(--border);
     border-radius: 50%;
     opacity: 0.3;
   }
+  .about-letter { font-family: var(--font-display); font-size: 8rem; line-height: 1; color: var(--gold); opacity: 0.15; position: absolute; top: -1rem; right: 1rem; }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .value-item { background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.1); padding: 1.2rem; }
+  .value-letter { font-family: var(--font-display); font-size: 2.5rem; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+  .value-word { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .value-desc { font-size: 0.8rem; color: rgba(240,236,228,0.6); line-height: 1.5; }
 
-  .about-letter {
-    font-family: var(--font-display);
-    font-size: 8rem;
-    line-height: 1;
-    color: var(--gold);
-    opacity: 0.15;
+  .about-text p { font-family: var(--font-serif); font-size: 1.15rem; line-height: 1.8; color: rgba(240,236,228,0.75); margin-bottom: 1.5rem; }
+  .about-text p strong { color: var(--gold); font-weight: 400; }
+  .about-signature { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); font-family: var(--font-serif); font-style: italic; font-size: 0.9rem; color: var(--muted); }
+
+  /* ── EVENTS ── */
+  #events { position: relative; background: var(--black); }
+
+  .events-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    gap: 2.5rem;
+  }
+
+  /* Running stickman animation */
+  .stickman-wrap {
+    position: relative;
+    height: 80px;
+    width: 120px;
+  }
+  .stickman {
     position: absolute;
-    top: -1rem;
-    right: 1rem;
+    left: 0;
+    animation: runAcross 2.4s linear infinite;
   }
-
-  .about-values {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
+  @keyframes runAcross {
+    0%   { left: -20px; opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { left: 110px; opacity: 0; }
   }
+  /* Leg animations */
+  .leg-front { animation: legFront 0.4s ease-in-out infinite alternate; transform-origin: 12px 30px; }
+  .leg-back  { animation: legBack  0.4s ease-in-out infinite alternate; transform-origin: 12px 30px; }
+  .arm-front { animation: armFront 0.4s ease-in-out infinite alternate; transform-origin: 12px 18px; }
+  .arm-back  { animation: armBack  0.4s ease-in-out infinite alternate; transform-origin: 12px 18px; }
+  @keyframes legFront  { from { transform: rotate(-30deg); } to { transform: rotate(30deg); } }
+  @keyframes legBack   { from { transform: rotate(30deg);  } to { transform: rotate(-30deg); } }
+  @keyframes armFront  { from { transform: rotate(-25deg); } to { transform: rotate(25deg); } }
+  @keyframes armBack   { from { transform: rotate(25deg);  } to { transform: rotate(-25deg); } }
 
-  .value-item {
-    background: rgba(201,168,76,0.04);
-    border: 1px solid rgba(201,168,76,0.1);
-    padding: 1.2rem;
-    position: relative;
-  }
-
-  .value-letter {
+  .loading-text {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 0.4em;
     color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .value-word {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .value-desc {
-    font-size: 0.8rem;
-    color: rgba(240,236,228,0.6);
-    line-height: 1.5;
-  }
-
-  .about-text p {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: rgba(240,236,228,0.75);
-    margin-bottom: 1.5rem;
-  }
-
-  .about-text p strong {
-    color: var(--gold);
-    font-weight: 400;
-  }
-
-  .about-signature {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--muted);
-  }
-
-  /* ─── EVENTS ─── */
-  #events {
-    position: relative;
-    background: var(--black);
-  }
-
-  .events-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-top: 3rem;
-  }
-
-  .event-card {
-    background: var(--deep);
-    padding: 2.5rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    cursor: pointer;
-  }
-
-  .event-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: linear-gradient(to right, var(--red-bright), var(--gold));
-    transition: width 0.4s ease;
-  }
-
-  .event-card:hover::after { width: 100%; }
-
-  .event-card:hover { background: var(--surface); }
-
-  .event-date {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    letter-spacing: 0.25em;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.2em;
   }
-
-  .event-date::before {
-    content: '';
-    display: block;
-    width: 20px; height: 1px;
-    background: var(--gold);
-  }
-
-  .event-name {
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--white);
-  }
-
-  .event-details {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .event-badge {
+  .loading-dots span {
     display: inline-block;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid;
+    animation: dotBounce 1.4s ease-in-out infinite;
+    opacity: 0;
+  }
+  .loading-dots span:nth-child(1) { animation-delay: 0s; }
+  .loading-dots span:nth-child(2) { animation-delay: 0.25s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.5s; }
+  @keyframes dotBounce {
+    0%, 80%, 100% { opacity: 0; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-6px); }
+  }
+  .loading-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
   }
 
-  .badge-open { border-color: var(--gold); color: var(--gold); }
-  .badge-full { border-color: var(--red-bright); color: var(--red-bright); }
-  .badge-upcoming { border-color: var(--muted); color: var(--muted); }
-
-  .event-distance {
-    position: absolute;
-    top: 2rem; right: 2rem;
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    color: rgba(201,168,76,0.06);
-    letter-spacing: 0.05em;
-    line-height: 1;
-  }
-
-  /* ─── GALLERY ─── */
-  #gallery {
-    background: var(--deep);
-    padding-bottom: 6rem;
-  }
+  /* ── GALLERY ── */
+  #gallery { background: var(--deep); padding-bottom: 6rem; }
 
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
     gap: 3px;
     margin-top: 3rem;
   }
-
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
+  .gallery-item { position: relative; overflow: hidden; cursor: pointer; }
   .gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
   .gallery-item:nth-child(2) { grid-column: span 4; }
   .gallery-item:nth-child(3) { grid-column: span 3; }
@@ -639,366 +364,81 @@
   .gallery-item:nth-child(6) { grid-column: span 4; }
   .gallery-item:nth-child(7) { grid-column: span 3; }
 
-  .gallery-placeholder {
-    width: 100%;
-    padding-bottom: 70%;
-    position: relative;
-    overflow: hidden;
-  }
+  .gallery-placeholder { width: 100%; padding-bottom: 70%; position: relative; overflow: hidden; }
+  .gallery-item:nth-child(1) .gallery-placeholder { padding-bottom: 0; height: 100%; min-height: 450px; }
 
-  .gallery-item:nth-child(1) .gallery-placeholder {
-    padding-bottom: 0;
-    height: 100%;
-    min-height: 450px;
-  }
-
-  .gallery-inner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.6s ease;
-  }
-
+  .gallery-inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.6s ease; }
   .gallery-item:hover .gallery-inner { transform: scale(1.05); }
 
-  .gallery-item:nth-child(1) .gallery-inner { background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 50%, #1a0a0a 100%); }
-  .gallery-item:nth-child(2) .gallery-inner { background: linear-gradient(135deg, #0a0a0f 0%, #15152d 100%); }
-  .gallery-item:nth-child(3) .gallery-inner { background: linear-gradient(135deg, #0f0a05 0%, #2d2010 100%); }
-  .gallery-item:nth-child(4) .gallery-inner { background: linear-gradient(135deg, #050f05 0%, #102010 100%); }
-  .gallery-item:nth-child(5) .gallery-inner { background: linear-gradient(135deg, #0f0f0a 0%, #202010 100%); }
-  .gallery-item:nth-child(6) .gallery-inner { background: linear-gradient(135deg, #0a050f 0%, #20102d 100%); }
-  .gallery-item:nth-child(7) .gallery-inner { background: linear-gradient(135deg, #0f0505 0%, #2d1010 100%); }
+  .gallery-item:nth-child(1) .gallery-inner { background: linear-gradient(135deg, #1a0a0a, #2d1515); }
+  .gallery-item:nth-child(2) .gallery-inner { background: linear-gradient(135deg, #0a0a0f, #15152d); }
+  .gallery-item:nth-child(3) .gallery-inner { background: linear-gradient(135deg, #0f0a05, #2d2010); }
+  .gallery-item:nth-child(4) .gallery-inner { background: linear-gradient(135deg, #050f05, #102010); }
+  .gallery-item:nth-child(5) .gallery-inner { background: linear-gradient(135deg, #0f0f0a, #202010); }
+  .gallery-item:nth-child(6) .gallery-inner { background: linear-gradient(135deg, #0a050f, #20102d); }
+  .gallery-item:nth-child(7) .gallery-inner { background: linear-gradient(135deg, #0f0505, #2d1010); }
 
-  .gallery-icon {
-    opacity: 0.15;
-    font-family: var(--font-display);
-    font-size: 4rem;
-    color: var(--gold);
-    letter-spacing: 0.2em;
-  }
+  .gallery-icon { opacity: 0.15; font-family: var(--font-display); font-size: 4rem; color: var(--gold); letter-spacing: 0.2em; }
 
-  .gallery-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(8,8,8,0.7);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
+  .gallery-overlay { position: absolute; inset: 0; background: rgba(8,8,8,0.7); display: flex; align-items: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease; }
   .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-caption { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .gallery-photo-hint { position: absolute; bottom: 1rem; left: 1rem; right: 1rem; text-align: center; font-family: var(--font-serif); font-style: italic; font-size: 0.85rem; color: rgba(201,168,76,0.3); pointer-events: none; }
+  .gallery-note { margin-top: 2rem; text-align: center; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--muted); font-style: italic; font-family: var(--font-serif); }
 
-  .gallery-caption {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
+  /* ── JOIN ── */
+  #join { background: var(--black); position: relative; overflow: hidden; }
+  #join::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(139,26,26,0.08) 0%, transparent 70%); }
 
-  .gallery-photo-hint {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    text-align: center;
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.85rem;
-    color: rgba(201,168,76,0.3);
-    pointer-events: none;
-  }
+  .join-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; text-align: center; }
+  .join-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+  .join-title em { font-style: italic; color: var(--gold); }
+  .join-subtitle { font-family: var(--font-serif); font-size: 1.1rem; color: var(--muted); margin-bottom: 4rem; line-height: 1.7; font-style: italic; }
 
-  .gallery-note {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    font-style: italic;
-    font-family: var(--font-serif);
-  }
-
-  /* ─── JOIN ─── */
-  #join {
-    background: var(--black);
-    position: relative;
-    overflow: hidden;
-  }
-
-  #join::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(139,26,26,0.08) 0%, transparent 70%);
-  }
-
-  .join-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .join-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .join-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .join-subtitle {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 4rem;
-    line-height: 1.7;
-    font-style: italic;
-  }
-
-  .join-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .form-field label {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-align: left;
-  }
-
-  .form-field input,
-  .form-field select {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--white);
-    padding: 0.9rem 1.2rem;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    outline: none;
-    transition: border-color 0.3s;
-    appearance: none;
-  }
-
-  .form-field input:focus,
-  .form-field select:focus {
-    border-color: var(--gold);
-  }
-
-  .form-field input::placeholder { color: var(--muted); }
-
-  .form-submit {
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    padding: 1.1rem;
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-    margin-top: 0.5rem;
-  }
-
-  .form-submit:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
-  }
-
-  .join-tiers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 4rem;
-  }
-
-  .tier-card {
-    background: var(--deep);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    transition: background 0.3s;
-  }
-
+  .join-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4rem; }
+  .tier-card { background: var(--deep); padding: 2rem 1.5rem; text-align: center; transition: background 0.3s; }
   .tier-card:hover { background: var(--surface); }
+  .tier-card.featured { background: var(--surface); position: relative; }
+  .tier-card.featured::before { content: 'Popular'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--black); font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.25rem 0.75rem; font-weight: 500; }
+  .tier-name { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.5rem; }
+  .tier-price { font-family: var(--font-serif); font-size: 2.2rem; color: var(--white); margin-bottom: 0.25rem; }
+  .tier-period { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .tier-features { list-style: none; font-size: 0.78rem; color: rgba(240,236,228,0.6); line-height: 2; }
+  .tier-features li::before { content: '— '; color: var(--gold); opacity: 0.6; }
 
-  .tier-card.featured {
-    background: var(--surface);
-    position: relative;
-  }
+  .join-form { display: flex; flex-direction: column; gap: 1rem; max-width: 480px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-field label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); text-align: left; }
+  .form-field input, .form-field select { background: var(--surface); border: 1px solid var(--border); color: var(--white); padding: 0.9rem 1.2rem; font-family: var(--font-body); font-size: 0.85rem; outline: none; transition: border-color 0.3s; appearance: none; }
+  .form-field input:focus, .form-field select:focus { border-color: var(--gold); }
+  .form-field input::placeholder { color: var(--muted); }
+  .form-submit { background: var(--gold); color: var(--black); border: none; padding: 1.1rem; font-family: var(--font-body); font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: all 0.3s; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); margin-top: 0.5rem; }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.3); }
 
-  .tier-card.featured::before {
-    content: 'Popular';
-    position: absolute;
-    top: -1px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--black);
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.75rem;
-    font-weight: 500;
-  }
-
-  .tier-name {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-
-  .tier-price {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    color: var(--white);
-    margin-bottom: 0.25rem;
-  }
-
-  .tier-period {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .tier-features {
-    list-style: none;
-    font-size: 0.78rem;
-    color: rgba(240,236,228,0.6);
-    line-height: 2;
-    margin-bottom: 0;
-  }
-
-  .tier-features li::before {
-    content: '— ';
-    color: var(--gold);
-    opacity: 0.6;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--deep);
-    border-top: 1px solid var(--border);
-    padding: 4rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-  }
-
-  .footer-brand .logo-text {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    letter-spacing: 0.35em;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .footer-brand p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 280px;
-    font-family: var(--font-serif);
-    font-style: italic;
-  }
-
-  .footer-col h4 {
-    font-size: 0.6rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .footer-col a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.82rem;
-    transition: color 0.3s;
-    letter-spacing: 0.05em;
-  }
-
+  /* ── FOOTER ── */
+  footer { background: var(--deep); border-top: 1px solid var(--border); padding: 4rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; }
+  .footer-brand .logo-text { font-family: var(--font-display); font-size: 2.5rem; letter-spacing: 0.35em; color: var(--gold); margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; max-width: 280px; font-family: var(--font-serif); font-style: italic; }
+  .footer-col h4 { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.3s; letter-spacing: 0.05em; }
   .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { background: var(--deep); border-top: 1px solid var(--border); padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase; }
 
-  .footer-bottom {
-    background: var(--deep);
-    border-top: 1px solid var(--border);
-    padding: 1.5rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-bottom p {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-    opacity: 0.15;
-    margin: 0;
-  }
-
-  /* ─── RESPONSIVE ─── */
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 1.5rem 2rem; }
     nav .nav-links { display: none; }
     section { padding: 5rem 2rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .events-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
     .gallery-item:nth-child(1) .gallery-placeholder { min-height: 250px; }
     .join-tiers { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     footer { grid-template-columns: 1fr; gap: 2rem; }
-    .stat-bar { grid-template-columns: repeat(2, 1fr); }
-    .stat-item:nth-child(2) { border-right: none; }
   }
 </style>
 </head>
@@ -1020,58 +460,57 @@
   <div class="hero-bg"></div>
   <div class="hero-lines"></div>
 
-  <!-- LOGO MARK -->
+  <!-- UPDATED LOGO: heart + mountain peaks, no stick figure -->
   <div class="logo-mark">
     <div class="logo-svg-wrapper">
       <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="160">
-        <!-- Outer ring -->
+        <!-- Outer rings -->
         <circle cx="80" cy="80" r="76" stroke="#c9a84c" stroke-width="0.5" opacity="0.4"/>
         <circle cx="80" cy="80" r="68" stroke="#c9a84c" stroke-width="0.5" opacity="0.2"/>
 
         <!-- Heart shape -->
-        <path d="M80 108 C80 108 42 84 42 60 C42 48 50 40 60 40 C68 40 74 46 80 54 C86 46 92 40 100 40 C110 40 118 48 118 60 C118 84 80 108 80 108Z"
-              fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.9"/>
+        <path d="M80 112 C80 112 38 86 38 58 C38 45 47 36 58 36 C67 36 74 43 80 52 C86 43 93 36 102 36 C113 36 122 45 122 58 C122 86 80 112 80 112Z"
+              fill="rgba(201,168,76,0.05)" stroke="#c9a84c" stroke-width="1.2" opacity="0.9"/>
 
-        <!-- Inner heart (filled subtle) -->
-        <path d="M80 102 C80 102 50 82 50 62 C50 53 56 47 64 47 C71 47 76 52 80 58 C84 52 89 47 96 47 C104 47 110 53 110 62 C110 82 80 102 80 102Z"
-              fill="rgba(201,168,76,0.04)" stroke="#c9a84c" stroke-width="0.4" opacity="0.4"/>
+        <!-- Mountain peaks inside heart -->
+        <line x1="48" y1="92" x2="112" y2="92" stroke="#c9a84c" stroke-width="0.5" opacity="0.25"/>
+        <!-- Left smaller hill -->
+        <polyline points="48,92 60,76 72,92"
+              stroke="#c9a84c" stroke-width="0.9" fill="none" opacity="0.45"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Center tall peak -->
+        <polyline points="62,92 80,56 98,92"
+              stroke="#c9a84c" stroke-width="1.2" fill="rgba(201,168,76,0.04)" opacity="0.9"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Snow cap -->
+        <polyline points="75,66 80,56 85,66"
+              stroke="#c9a84c" stroke-width="0.7" fill="none" opacity="0.55"
+              stroke-linejoin="round" stroke-linecap="round"/>
+        <!-- Right medium peak -->
+        <polyline points="90,92 104,70 118,92"
+              stroke="#c9a84c" stroke-width="0.9" fill="none" opacity="0.45"
+              stroke-linejoin="round" stroke-linecap="round"/>
 
-        <!-- Running figure (stylized) -->
-        <circle cx="80" cy="66" r="4.5" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.8"/>
-        <line x1="80" y1="71" x2="80" y2="82" stroke="#c9a84c" stroke-width="0.8" opacity="0.8"/>
-        <line x1="80" y1="74" x2="73" y2="79" stroke="#c9a84c" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
-        <line x1="80" y1="74" x2="87" y2="77" stroke="#c9a84c" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
-        <line x1="80" y1="82" x2="75" y2="91" stroke="#c9a84c" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
-        <line x1="80" y1="82" x2="86" y2="90" stroke="#c9a84c" stroke-width="0.8" opacity="0.8" stroke-linecap="round"/>
-
-        <!-- Decorative dots -->
-        <circle cx="80" cy="24" r="2" fill="#c9a84c" opacity="0.6"/>
+        <!-- Cardinal dots -->
+        <circle cx="80" cy="24"  r="2" fill="#c9a84c" opacity="0.6"/>
         <circle cx="80" cy="136" r="2" fill="#c9a84c" opacity="0.6"/>
-        <circle cx="24" cy="80" r="2" fill="#c9a84c" opacity="0.6"/>
+        <circle cx="24" cy="80"  r="2" fill="#c9a84c" opacity="0.6"/>
         <circle cx="136" cy="80" r="2" fill="#c9a84c" opacity="0.6"/>
 
         <!-- Corner marks -->
-        <path d="M20 14 L14 14 L14 20" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
+        <path d="M20 14 L14 14 L14 20"   stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
         <path d="M140 14 L146 14 L146 20" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
         <path d="M20 146 L14 146 L14 140" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
         <path d="M140 146 L146 146 L146 140" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
-
-        <!-- Pulse line -->
-        <path d="M28 100 L40 100 L48 88 L56 112 L64 96 L72 100 L80 94 L88 100 L96 100 L104 100 L108 100 L132 100"
-              stroke="#c9a84c" stroke-width="0.6" fill="none" opacity="0.35" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
   </div>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Est. 2019 — Run with Purpose</p>
+    <!-- EST. line removed -->
     <h1 class="hero-title">H.E.A.R.T</h1>
     <p class="hero-subtitle">Hike · Endure · Ascend · Run · Trail</p>
-
-    <div class="hero-dots">
-      <span></span><span></span><span></span>
-    </div>
-
+    <div class="hero-dots"><span></span><span></span><span></span></div>
     <div class="hero-actions">
       <a href="#join" class="btn-primary">Join the Movement</a>
       <a href="#about" class="btn-ghost">Our Story</a>
@@ -1084,31 +523,14 @@
   </div>
 </section>
 
-<!-- STAT BAR -->
-<div class="stat-bar">
-  <div class="stat-item">
-    <div class="stat-number">2.4K</div>
-    <div class="stat-label">Active Members</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">48</div>
-    <div class="stat-label">Annual Events</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">18</div>
-    <div class="stat-label">Cities</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">6</div>
-    <div class="stat-label">Years Running</div>
-  </div>
-</div>
+<!-- STAT BAR removed -->
 
 <div class="divider"></div>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
+    <!-- Left column: H.E.A.R.T values — unchanged -->
     <div class="about-visual">
       <div class="about-card">
         <div class="about-letter">H</div>
@@ -1147,16 +569,21 @@
       </div>
     </div>
 
+    <!-- Right column: updated text -->
     <div class="about-text">
       <div class="section-header" style="margin-bottom: 2rem;">
         <div class="section-tag">Our Story</div>
-        <h2 class="section-title">Running is not just a sport — it's a <em>way of being</em></h2>
+        <h2 class="section-title"><em>About HEART</em></h2>
       </div>
-      <p>H.E.A.R.T was born from a simple belief: that <strong>movement heals, mountains inspire,</strong> and every person holds within them the capacity for extraordinary things. We are not merely a running club — we are a movement.</p>
-      <p>Founded in 2019, we've grown from a small group of dawn runners and trail hikers to a family of thousands spanning 18 cities. Our weekly runs, trail ascents, and race days are built around one philosophy: <strong>hike, endure, ascend, run, trail.</strong></p>
-      <p>Whether you're tackling your first trail or your fiftieth summit, whether you run for time or for the view — there is a place for you here. Every pace is sacred. Every peak, a triumph.</p>
+
+      <p>HEART is founded on a simple idea: when people <strong>move together with purpose,</strong> they become stronger — physically and mentally. We believe that endurance builds character, trails build perspective, and community builds confidence.</p>
+
+      <p>Born from years of endurance racing, ultra-distance challenges and mountain runs, H.E.A.R.T is built for runners. Our foundation comes from real experience — from conquering <strong>100 km ultras,</strong> pushing limits in 12-hour stadium runs, and embracing the raw beauty of high-altitude endurance events.</p>
+
+      <p>We understand what it takes to train, to struggle, to rise, and to finish strong — <strong>because we have lived it.</strong></p>
+
       <div class="about-signature">
-        — The H.E.A.R.T Founding Team, 2019
+        — The H.E.A.R.T Founding Team
       </div>
     </div>
   </div>
@@ -1171,54 +598,32 @@
     <h2 class="section-title">Upcoming <em>Events & Races</em></h2>
   </div>
 
-  <div class="events-grid">
-    <div class="event-card">
-      <div class="event-distance">5K</div>
-      <div class="event-date">Apr 12, 2025</div>
-      <div class="event-name">The Dawn Sprint</div>
-      <div class="event-details">Sunrise · Coastal Route · All Levels</div>
-      <span class="event-badge badge-open">Registration Open</span>
+  <!-- Events loading placeholder -->
+  <div class="events-loading">
+    <!-- Animated running stickman -->
+    <div class="stickman-wrap">
+      <svg class="stickman" width="32" height="52" viewBox="0 0 32 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Head -->
+        <circle cx="16" cy="6" r="5" stroke="#c9a84c" stroke-width="1.4" fill="none"/>
+        <!-- Body -->
+        <line x1="16" y1="11" x2="16" y2="28" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Arms -->
+        <line class="arm-back"  x1="16" y1="17" x2="5"  y2="24" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        <line class="arm-front" x1="16" y1="17" x2="27" y2="22" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        <!-- Legs -->
+        <line class="leg-back"  x1="16" y1="28" x2="6"  y2="44" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+        <line class="leg-front" x1="16" y1="28" x2="26" y2="44" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
     </div>
 
-    <div class="event-card">
-      <div class="event-distance">21K</div>
-      <div class="event-date">May 3, 2025</div>
-      <div class="event-name">Heart of the City Half Marathon</div>
-      <div class="event-details">Urban Circuit · Intermediate–Elite</div>
-      <span class="event-badge badge-full">Sold Out</span>
+    <div class="loading-text">
+      Events Coming
+      <span class="loading-dots">
+        <span>.</span><span>.</span><span>.</span>
+      </span>
     </div>
 
-    <div class="event-card">
-      <div class="event-distance">10K</div>
-      <div class="event-date">May 24, 2025</div>
-      <div class="event-name">Night Run Noir</div>
-      <div class="event-details">Dusk to Night · City Lights · All Levels</div>
-      <span class="event-badge badge-open">Registration Open</span>
-    </div>
-
-    <div class="event-card">
-      <div class="event-distance">42K</div>
-      <div class="event-date">Jun 15, 2025</div>
-      <div class="event-name">The Endurance Classic</div>
-      <div class="event-details">Full Marathon · Championship</div>
-      <span class="event-badge badge-open">Registration Open</span>
-    </div>
-
-    <div class="event-card">
-      <div class="event-distance">Trail</div>
-      <div class="event-date">Jul 6, 2025</div>
-      <div class="event-name">Summit & Soul Trail Run</div>
-      <div class="event-details">Mountain Terrain · Advanced</div>
-      <span class="event-badge badge-upcoming">Coming Soon</span>
-    </div>
-
-    <div class="event-card">
-      <div class="event-distance">5K</div>
-      <div class="event-date">Aug 30, 2025</div>
-      <div class="event-name">Charity Stride for Hope</div>
-      <div class="event-details">Charity Run · Family Friendly</div>
-      <span class="event-badge badge-upcoming">Coming Soon</span>
-    </div>
+    <p class="loading-sub">Race calendar is being prepared — check back soon</p>
   </div>
 </section>
 
@@ -1238,63 +643,43 @@
           <div class="gallery-icon">RUN</div>
           <div class="gallery-photo-hint">Feature Race Photo</div>
         </div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Heart of the City Marathon 2024</div>
-        </div>
+        <div class="gallery-overlay"><div class="gallery-caption">Heart of the City Marathon 2024</div></div>
       </div>
     </div>
-
     <div class="gallery-item">
       <div class="gallery-placeholder">
         <div class="gallery-inner"><div class="gallery-icon">↑</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Dawn Sprint — April 2024</div>
-        </div>
+        <div class="gallery-overlay"><div class="gallery-caption">Dawn Sprint — April 2024</div></div>
       </div>
     </div>
-
     <div class="gallery-item">
       <div class="gallery-placeholder">
         <div class="gallery-inner"><div class="gallery-icon">♡</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Community Run Day</div>
-        </div>
+        <div class="gallery-overlay"><div class="gallery-caption">Community Run Day</div></div>
       </div>
     </div>
-
     <div class="gallery-item">
       <div class="gallery-placeholder">
         <div class="gallery-inner"><div class="gallery-icon">5K</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">First Finishers — 2024</div>
-        </div>
+        <div class="gallery-overlay"><div class="gallery-caption">First Finishers — 2024</div></div>
       </div>
     </div>
-
-    <div class="gallery-item">
-      <div class="gallery-placeholder">
-        <div class="gallery-inner"><div class="gallery-icon">⬡</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Night Run Noir 2024</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-item">
-      <div class="gallery-placeholder">
-        <div class="gallery-inner"><div class="gallery-icon">42K</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Endurance Classic 2023</div>
-        </div>
-      </div>
-    </div>
-
     <div class="gallery-item">
       <div class="gallery-placeholder">
         <div class="gallery-inner"><div class="gallery-icon">▲</div></div>
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Summit & Soul — Trail Run</div>
-        </div>
+        <div class="gallery-overlay"><div class="gallery-caption">Night Run Noir 2024</div></div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-inner"><div class="gallery-icon">42K</div></div>
+        <div class="gallery-overlay"><div class="gallery-caption">Endurance Classic 2023</div></div>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <div class="gallery-inner"><div class="gallery-icon">⛰</div></div>
+        <div class="gallery-overlay"><div class="gallery-caption">Summit & Soul — Trail Run</div></div>
       </div>
     </div>
   </div>
@@ -1308,7 +693,6 @@
 <section id="join">
   <div class="join-inner">
     <div class="section-tag" style="justify-content: center;">Membership</div>
-
     <h2 class="join-title">Run with <em>H.E.A.R.T</em></h2>
     <p class="join-subtitle">Choose your tier, lace up, and join a family of runners and hikers who believe every mile — and every trail — matters.</p>
 
